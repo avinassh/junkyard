@@ -1,57 +1,260 @@
 <!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Junkyard by avinassh</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Junkyard</h1>
-      <h2 class="project-tagline"></h2>
-      <a href="https://github.com/avinassh/junkyard" class="btn">View on GitHub</a>
-      <a href="https://github.com/avinassh/junkyard/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/avinassh/junkyard/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+<html>
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+  <!-- Site Properties -->
+  <title>Save Our Cinema!</title>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.css">
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+  <script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/semantic.min.js"></script>
+  <script>
+  $(document)
+    .ready(function() {
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+      // fix main menu to page on passing
+      $('.main.menu').visibility({
+        type: 'fixed'
+      });
+      $('.overlay').visibility({
+        type: 'fixed',
+        offset: 80
+      });
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+      // lazy load images
+      $('.image').visibility({
+        type: 'image',
+        transition: 'vertical flip in',
+        duration: 500
+      });
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+      // show dropdown on hover
+      $('.main.menu  .ui.dropdown').dropdown({
+        on: 'hover'
+      });
+    })
+  ;
+  </script>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+  <style type="text/css">
 
-<p>You can <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/#mentioning-users-and-teams" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+  body {
+    background-color: #FFFFFF;
+  }
+  .main.container {
+    margin-top: 2em;
+  }
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+  .main.menu {
+    margin-top: 4em;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    transition:
+      box-shadow 0.5s ease,
+      padding 0.5s ease
+    ;
+  }
+  .main.menu .item img.logo {
+    margin-right: 1.5em;
+  }
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+  .overlay {
+    float: left;
+    margin: 0em 3em 1em 0em;
+  }
+  .overlay .menu {
+    position: relative;
+    left: 0;
+    transition: left 0.5s ease;
+  }
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/avinassh/junkyard">Junkyard</a> is maintained by <a href="https://github.com/avinassh">avinassh</a>.</span>
+  .main.menu.fixed {
+    background-color: #FFFFFF;
+    border: 1px solid #DDD;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  }
+  .overlay.fixed .menu {
+    left: 800px;
+  }
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+  .text.container .left.floated.image {
+    margin: 2em 2em 2em -4em;
+  }
+  .text.container .right.floated.image {
+    margin: 2em -4em 2em 2em;
+  }
 
-    </section>
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+  </style>
 
-  
-  </body>
+</head>
+<body>
+
+  <!--div class="ui main text container">
+    <h1 class="ui header">Sticky Example</h1>
+    <p>This example shows how to use lazy loaded images, a sticky menu, and a simple text container</p>
+  </div-->
+
+
+  <div class="ui borderless main menu">
+    <div class="ui text container">
+      <div href="#" class="header item">
+        <!--img class="logo" src="assets/images/logo.png"-->
+        #SaveOurCinema
+      </div>
+      <a href="#" class="active item">Home</a>
+      <a href="#" class="item">History of Censorship</a>
+      <a href="#" class="item">External Links</a>
+      <!--a href="#" class="ui right floated dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Link Item</div>
+          <div class="item">Link Item</div>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <div class="item">Link Item</div>
+              <div class="item">Link Item</div>
+            </div>
+          </div>
+          <div class="item">Link Item</div>
+        </div>
+      </a-->
+    </div>
+  </div>
+
+  <div class="ui text container">
+    <center><img src="censored.png" class="ui tiny circular image"></center>
+    <h1 class="ui header huge center aligned">Save Our Cinema</h1>
+    <div class="ui segment">
+      <h2 class="ui left floated header">Whats this site is about</h2>
+        <div class="ui clearing divider"></div>
+        <p>The ‘Save Our Cinama’ coalition was set up to help the general movie watching public participate in the policy building process by showing what our priorities are. We have created an easy to use tool to help you send your responses quickly. If you can, please do write your own comments and suggestions.</p>
+    </div>
+    <div class="ui segment">
+      <h2 class="ui left floated header">Why send an email?</h2>
+        <div class="ui clearing divider"></div>
+        <p>Have you recently gone to a movie in India and scratched your head trying to understand what was going on because of all the muted dialogues? For example, in a recently released Hollywood movie which was given ‘Adult’ rating, all double meaning dialogues were ordered to be replaced with 'Man and Woman', and all instances of the words 'asshole' were ordered to be muted.</p>
+        <p>If you are tired of this ridiculous curtailment of the freedom of expression guaranteed in our constitution, there is a ray of hope. The union government has constituted a committee headed by Shyam Benegal, one of the most respected film makers in the country to recommend how to revamp the censor board. The committee is asking for views of film viewers on the certification process being followed by the CBFC and suggestions if any within the ambit of the existing Cinematograph Act, 1952, rules &amp; guidelines which have withstood the scrutiny of various courts to enable them finalize their recommendations. Submissions should be restricted to two pages and covering important aspects detailed here: <a href="http://www.nfdcindia.com/uploads/post/0241643001452855838.pdf">NDFC Guidelines</a>.</p>
+        <p>We have created an easy to use tool to help you send your responses quickly. If you can, please do write your own comments and suggestions.</p>
+    </div>
+    <div class="ui segment">
+      <h2 class="ui left floated header">How to?</h2>
+        <div class="ui clearing divider"></div>
+        <p>Copy the following message and edit it as your requirements. And then send the email to <code>censorboard@assholes.com</code>. Or scroll down to bottom and click on Send Email button</p>
+    </div>
+    <div class="ui segment">
+      <h2 class="ui left floated header">Email Content</h2>
+      <div class="ui clearing divider"></div>
+        <div class="ui message">
+          <p>Dear Sir,</p>
+          <p>Following is the email regarding...</p>
+          <p><strong>Certification vs Censorship:</strong></p>
+          <p>Although CBFC has the term “certification” in it, it is still popularly referred to as a “censor” board. This is no accident. Despite the change in name the board is still actively trying to function as a censoring agency rather than a certification agency. This is an unfortunate reality which isn’t going to change overnight. It is ironic that CBFC certifies films and rather than being “responsive to social change” is actively hindering the process of social change by random censorship.</p>
+          <p>The ratings of U, U/A, A and S, in principle, are mostly adequate. Most of the controversy is with the rating of A. A rated movies are meant for Adults and theaters are bound by the law to make sure all their viewers are adults. Enforcement of it should not be considered while certifying movies. Why does a movie, despite being rated A, need any significant cuts? Does the CBFC assume that adults living in India cannot make up their mind over movies? There is already a significant economic disadvantage to the makers when their movies are rated A, and yet the makers make a conscious decision to accept this rating for their movies because they want the movie to cater to a specific audience. CBFC should act as a conduit between the creators and the consumers, not as an iron curtain reinforced by bureaucratic apathy.</p>
+          <p>CBFC should not rate movies twice(Celluloid and Video) unless there is a significant difference between the two mediums. A person should have the freedom to watch an A rated movie at the comfort and confines of his home. It should be the responsibility of the adults to make sure no child has access to them. CBFC should not act as a kind of “moral police”  and devoid adults from watching movies at the privacy of their homes. Restricting access to movies legally will only increase instances of piracy in this digital age as Indian movies makers are finding it easier to distribute their movies overseas without any restrictions/ censorship. Once the international versions hit the market, it is only a matter of time for them to be available on the Internet for the world to see. This is proving to be extremely burdensome to movie makers who are making movies that are being appreciated internationally and as an Internationally acclaimed creator being the chair of this committee should be able to easily empathize.</p>
+          <p>The Anti smoking/drinking warnings and the “CGI” labels for CGI animals in movies should be thought over, especially when it comes to movies that are rated A. More than the smoking/drinking warnings, I do not see a point of having CGI prominently displayed when ever we see a computer generated animal on screen! I’ve read countless documents relating to this and cannot understand how this helps in animal welfare in anyway. Both these serve as severe distractions for viewers and hinders us from truly being a part of the cinematic world. There is also no standard way to display these warnings… Tamil movies have a white background with text over it where as most Telugu movies have transparent background with text and imagery.</p>
+          <p>I attribute this to be a major factor why movie makers don’t make money outside of theatrical runs. When compared the US, India’s home video sales are abysmal(even including the income disparity) and rather than having more content included for home video, CBFC actively removes content.</p>
+          <p>There are also severe restrictions placed on movies rated A banned from being aired on cable TV. To ease the burden on CBFC, it should be left to the devices of TV channels as they are adept at self-censorship. Indian broadcasters federation along with EMMC already have the necessary rules and mechanisms in place to make sure the programs they telecast conform to their respective guidelines.</p>
+          <p>In addition to that, CBFC should certify all movies without ban
+          ning them. They should treat movies as a form of highly skilled art form rather than an entertainment medium.</p>
+          <p>In short - Certification for A rating should be much more liberal. Have a universal rating system for both celluloid and video(U, U/A, A and S). Let IBF and EMMC deal with monitoring content on the cable. Review the policy on smoking/drinking warning and the CGI labels(Does it really serve a purpose?).</p>
+          <p><strong>The curious case of 50%:</strong></p>
+          <p>The recent controversy regarding cutting a kissing scene from the new James bond movie “Spectre” illustrates this problem perfectly. This movie was rated U/A and the CBFC recommended 50% removal of a kissing scene. Would the CBFC do the same had that particular scene been twice as long? Doesn’t it give an impetus to movie makers to have even more of there titillating scenes on the assumption that at least 50% will go through the certification process? This whole process of hard limits on certain scenes defies logic. If CBFC doesn’t have a problem with kissing, why not accept the whole scene?</p>
+          <p><strong>Digital age and Streisand effect:</strong></p>
+          <p>What is the use of certification when the makers can directly release movies on online streaming websites which are based outside of India? CBFC need to embrace the digital age, not act as if it doesn’t exist. Take the case of Angry Indian Goddess, the movie creators released a video on social media showing scenes and dialogues that have been muted by the CBFC. Did the country collective outrage after seeing the video? This despite the movie being rated A.</p>
+          <p>CBFC, as a whole, have been ignoring social media and this creates a perception that it is an exclusive club of grumpy old men who do not want the rest of the population to have some fun. A good leader can change that perception - unfortunately, the current chair and the board members are anything but that.</p>
+          <p>The official website of CBFC is a perfect example of how out of touch CBFC is with modern technology. The fact that this notification could only be accessed via the NFDC and not via CBFC’s own paints a grim picture. The most recent news item is titled “Expression of Interest for 2nd Phase Computerisation of CBFC” posted in early 2012.</p>
+          <p>Streisand effect is defined as “The Streisand effect is the phenomenon whereby an attempt to hide, remove, or censor a piece of information has the unintended consequence of publicizing the information more widely, usually facilitated by the Internet.”</p>
+          <p>One of the best illustrations of Streisand effect is the CBFC’s reaction to the song Sadda haq from the Hindi movie Rockstar. It was CBFC’s action that added fuel to the fire. Are we so insecure as a nation that we are so afraid of even showing flags and banners that may offend another nation. Censoring of these symbols managed to illicit even more strong reaction from people.</p>
+          <p>CBFC is a perfect embodiment of the Streisand effect. CBFC has long been out of touch with reality and I am hopeful this committee will start taking proactive measures by improving their communication mechanism, being more approachable to the social media. Revamp the website and streamline the application process.</p>
+          <p><strong>Spoilers:</strong></p>
+          <p>Does your list of recommendations for cuts needs to be spoiler laden? Not only that, it is mandatory for theaters to display these prominently for people to see before the movie even begins. The minutia should be between the creators and the CBFC.</p>
+          <p>with regards,</p>
+          <!--div class="overlay">
+            <div class="ui labeled icon vertical menu">
+              <a class="item"><i class="twitter icon"></i> Tweet</a>
+              <a class="item"><i class="facebook icon"></i> Share</a>
+              <a class="item"><i class="mail icon"></i> E-mail</a>
+            </div>
+          </div-->
+        </div>
+    </div>
+    <div>
+      <center><button class="ui huge primary button">Send Email</button></center>
+      <p></p>
+      <center><div>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsaveourcinema.in&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;">
+        <button class="mini ui facebook button">
+        <i class="facebook icon"></i>
+          Share
+        </button></a>
+        <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Fsaveourcinema.in&text=:%20http%3A%2F%2Fsaveourcinema.in" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=Send+an+email+to+NFBC+now+to+change+the+policy+on+movie+censorship+board&url=http%3A%2F%2Fsaveourcinema.in&hashtags=SaveOurCinema'); return false;">
+        <button class="mini ui twitter button">
+          <i class="twitter icon"></i>
+          Tweet #SaveOurCinema
+        </button></a>
+      </div><center>
+    </div>
+  </div>
+  <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted divided grid">
+        <!--div class="three wide column">
+          <h4 class="ui inverted header">Group 1</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 2</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 3</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div-->
+        <!--div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+          <center><img class="ui medium circular image" src="//semantic-ui.com/images/wireframe/square-image.png"><center>
+        </div-->
+      </div>
+      <!--div class="ui inverted section divider"></div-->
+      <!--div class="ui horizontal inverted small divided link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+      </div-->
+      <p>Built with lots of love by cine lovers from India | <a href="https://github.com/google/protobuf">Github</a></p>
+    </div>
+  </div>
+</body>
+
 </html>
