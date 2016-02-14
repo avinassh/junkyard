@@ -243,7 +243,7 @@
   </div>
 <script type="text/javascript">
   $( document ).ready(function() {
-    emailBody = $('#email-body').text()
+    emailBody = $('#email-body').html()
     mailToAttr = "mailto:rajani@nfdcindia.com?bcc=feedback@saveourcinema.in&subject=Public%20consultation%20for%20revamp%20of%20CBFC&body=" + encodeURIComponent(emailBody)
     $("#send-anchor").attr('href', mailToAttr)
   });
