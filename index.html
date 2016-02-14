@@ -179,7 +179,7 @@
         </div>
     </div>
     <div>
-      <center><a href="mailto:rajani@nfdcindia.com?bcc=feedback@saveourcinema.in&subject=regarding%20censorship&body=CFBC%20you%20guys%20suck!" target="_top" id="send-anchor"><button class="ui huge primary button">Send Email</button></a></center>
+      <center><a href="mailto:rajani@nfdcindia.com?bcc=feedback@saveourcinema.in&subject=Public%20consultation%20for%20revamp%20of%20CBFC&body=" target="_top" id="send-anchor"><button class="ui huge primary button">Send Email</button></a></center>
       <p></p>
       <center><div>
         <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsaveourcinema.in&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;">
@@ -241,6 +241,12 @@
       <p>Built with lots of love by cine lovers from India | <a href="https://github.com/google/protobuf">Github</a></p>
     </div>
   </div>
+<script type="text/javascript">
+  $( document ).ready(function() {
+    emailBody = $('#email-body').text()
+    mailToAttr = "mailto:rajani@nfdcindia.com?bcc=feedback@saveourcinema.in&subject=Public%20consultation%20for%20revamp%20of%20CBFC&body=" + encodeURIComponent(emailBody)
+    $("#send-anchor").attr('href', mailToAttr)
+  });
+</script>
 </body>
-
 </html>
